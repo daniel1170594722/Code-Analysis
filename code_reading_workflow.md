@@ -40,7 +40,7 @@
     * AI 首先创建输出目录：`mkdir -p output`
 2. **项目扫描与结构生成**:
     * AI 执行预定义的命令或脚本来扫描项目目录，生成包含文件列表的结构文件。考虑到 FastDDS 是一个 C++ 项目，常用的命令可能包括：
-        * 生成包含所有源文件和头文件的列表：`find . -type f -name "*.cpp" -o -name "*.h" -o -name "*.hpp" -not -path "*/\.*" | sort > output/project_files.txt`
+        * 生成包含所有源文件和头文件的列表：`Get-ChildItem -Recurse -Include *.cpp,*.hpp,*.h -File | Sort-Object FullName | Out-File -FilePath output\project_files.txt`
         * 使用 `tree` 命令生成更详细的目录结构（限制深度）：`tree /F /A > output/project_structure.txt `
         * 如果项目使用 CMake，可以考虑解析 `CMakeLists.txt` 文件来理解项目结构和组件划分（更高级，可能需要额外的脚本或逻辑）。
     * AI 确认结构文件已生成。
