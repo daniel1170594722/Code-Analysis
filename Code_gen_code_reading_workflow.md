@@ -29,7 +29,7 @@ This workflow describes an AI-driven process for a systematic walkthrough analys
     *   AI executes a command suitable for Java/Maven/Gradle projects to scan the project directory and generate a structure file. Recommended command (adjust `target|build` based on actual build tool):
         ```bash
         # Exclude common Java build outputs, IDE files, Git, compiled classes
-        tree -L 4 -I "target|build|output|.git|.vscode|*.class|__pycache__" -J -o output/project_structure.json .
+        tree /F /A > output\project_structure.txt .
         ```
         *Alternative using `find` (excluding target/build/output directories, hidden files/dirs, and .class files):*
         ```bash
